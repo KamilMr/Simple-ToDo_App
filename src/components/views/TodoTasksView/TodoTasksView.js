@@ -1,8 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const TodoTasksView = () => {
     return ( 
-        <h1>This is Tasks View</h1>
+        <>
+        <Link to='/task'>Task</Link>
+        <h2>This is Tasks View</h2>
+        </>
      );
 }
  
