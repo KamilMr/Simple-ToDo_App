@@ -2,19 +2,13 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import TodoTasksView from './components/views/TodoTasksView/TodoTasksView';
 import TaskView from './components/views/TaskView/TaskView';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useSetRecoilState,
-  useRecoilValue,
-} from 'recoil';
+import AddTaskView from './components/views/AddTaskView/AddTaskView';
+import { atom, useRecoilState, } from 'recoil';
 
 
 const urlList = 'https://gorest.co.in/public-api/todos';
 
-const todoState = atom({
+export const todoState = atom({
   key: 'todoState',
   default: [],
 });
@@ -31,7 +25,7 @@ const App = () => {
       .then((data) => setList(data.data))
   },[])
 
-  console.log(todoList);
+
   return (
     <Router>
       <Switch>
