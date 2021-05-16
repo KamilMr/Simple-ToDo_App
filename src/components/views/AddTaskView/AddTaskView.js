@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { todoState } from '../../../App';
 import { useSetRecoilState } from 'recoil';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddTaskView = () => {
 
@@ -11,7 +12,7 @@ const AddTaskView = () => {
     setTodoList((oldTodoList) => [
       ...oldTodoList,
       {
-        id: getId(),
+        id: uuidv4(),
         title: inputValue,
         completed: false,
       },
@@ -23,12 +24,6 @@ const AddTaskView = () => {
   const onChange = ({ target: { value } }) => {
     setInputValue(value);
   };
-
-  // utility for creating unique Id
-  let id = 0;
-  const getId = () => {
-    return id++;
-  }
 
   return (
     <div>
