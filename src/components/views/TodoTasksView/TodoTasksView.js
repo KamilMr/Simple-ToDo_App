@@ -44,7 +44,6 @@ const TodoTasksView = () => {
 
   return (
     <>
-      <Link to='/task'>Task</Link>
       <SearchView 
       searchQuery={searchQuery}
       setSearchQuery={setSearchQuery}

@@ -1,7 +1,7 @@
 Stworzyć listę TODO w React.js z CRUD.
 Wymagania/skorzystaj z:
 
-[WORKING]
+[DONE]
 - Routing w react router (np. do osobnych widoków zadań, podgląd konkretnego zadania)
 - Recoil - do:
 

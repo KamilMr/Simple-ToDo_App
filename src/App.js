@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import TodoTasksView from './components/views/TodoTasksView/TodoTasksView';
-import TaskView from './components/views/TaskItem/TaskItem';
+import TaskView from './components/views/TaskView/TaskView';
 import AddTaskView from './components/views/AddTaskView/AddTaskView';
 import { atom, useRecoilState, } from 'recoil';
 
@@ -33,7 +33,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path='/'> <TodoTasksView /></Route>
-        {/* <Route path='/task' component={TaskView} /> */}
+        <Route path='/task/:id'><TaskView/></Route>
       </Switch>
     </Router>
   );
