@@ -5,6 +5,7 @@ import { useRecoilValue, atom, selector, useRecoilState } from 'recoil';
 import AddTaskView from '../AddTaskView/AddTaskView';
 import TaskView from '../TaskView/TaskView';
 import FilterTasks from '../FilterTasks/FilterTasks';
+import StatsView from '../StatsView/StatsView';
 
 
   const filteredTodoListState = selector({
@@ -32,6 +33,7 @@ const TodoTasksView = () => {
         <>
             <Link to='/task'>Task</Link>
             <AddTaskView />
+            <StatsView />
             <FilterTasks filteredTodoListState={filteredTodoListState} />
             {tasks.map((task) =>
                 <TaskView key={task.id} item={task} />)}

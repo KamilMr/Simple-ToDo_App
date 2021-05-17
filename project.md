@@ -8,7 +8,7 @@ Wymagania/skorzystaj z:
 [TO-BE-DONE]
      - dynamiczna aktualizacja ilości znaków
 
-[WORKING]
+[DONE]
      - licznik zakończonych i niezakończonych zadań
 
 [TO-BE-DONE]
