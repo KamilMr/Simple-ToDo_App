@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { todoState } from '../../../App';
 import { useRecoilState } from 'recoil';
 
-const TaskView = ({item}) => {
+const TaskItem = ({item}) => {
     const [todoList, setTodoList] = useRecoilState(todoState);
     const index = todoList.findIndex((listItem) => listItem === item);
   
@@ -53,8 +53,8 @@ const TaskView = ({item}) => {
     return [...arr.slice(0, index), ...arr.slice(index + 1)];
   }
 
-  TaskView.propTypes = {
+  TaskItem.propTypes = {
       item: PropTypes.object,
   }
 
-  export default TaskView;
+  export default TaskItem;

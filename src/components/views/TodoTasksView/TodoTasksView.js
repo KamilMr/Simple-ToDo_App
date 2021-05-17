@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { todoState, todoListFilterState } from '../../../App';
 import { useRecoilValue, atom, selector, useRecoilState } from 'recoil';
 import AddTaskView from '../AddTaskView/AddTaskView';
-import TaskView from '../TaskView/TaskView';
+import TaskItem from '../TaskItem/TaskItem';
 import FilterTasks from '../FilterTasks/FilterTasks';
 import StatsView from '../StatsView/StatsView';
 import SearchView from '../SearchView/SearchView';
@@ -53,7 +53,7 @@ const TodoTasksView = () => {
       <StatsView />
       <FilterTasks />
       {filteredPosts.map((task) =>
-        <TaskView key={task.id} item={task} />)}
+        <TaskItem key={task.id} item={task} />)}
     </>
   );
 }
