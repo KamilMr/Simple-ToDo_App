@@ -8,17 +8,17 @@ Wymagania/skorzystaj z:
 [TO-BE-DONE]
      - dynamiczna aktualizacja ilości znaków
 
-[DONE]
-     - licznik zakończonych i niezakończonych zadań
-
-[TO-BE-DONE]
-- Możliwość wyszukiwania notatki po treści
-
 [TO-BE-DONE]
 - Theme UI do styli i komponentów
 
 [DONE]
      - ukrywanie zakończonych zadań
+
+[DONE]
+     - licznik zakończonych i niezakończonych zadań
+
+[DONE]
+- Możliwość wyszukiwania notatki po treści
 
 [DONE]
 - Fetch API, komunikacja z serwerem - wykorzystać https://gorest.co.in API z todos

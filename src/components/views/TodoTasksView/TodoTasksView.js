@@ -51,7 +51,7 @@ const TodoTasksView = () => {
       />
       <AddTaskView />
       <StatsView />
-      <FilterTasks filteredTodoListState={filteredTodoListState} />
+      <FilterTasks />
       {filteredPosts.map((task) =>
         <TaskView key={task.id} item={task} />)}
     </>
