@@ -1,14 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { todoState } from '../../../App';
+import { todoState, todoListFilterState } from '../../../App';
 import { useRecoilValue, atom, selector, useRecoilState } from 'recoil';
 import AddTaskView from '../AddTaskView/AddTaskView';
 import TaskView from '../TaskView/TaskView';
+import FilterTasks from '../FilterTasks/FilterTasks';
 
-const todoListFilterState = atom({
-    key: 'todoListFilterState',
-    default: 'Show All',
-  });
 
   const filteredTodoListState = selector({
     key: 'filteredTodoListState',
@@ -17,8 +14,8 @@ const todoListFilterState = atom({
       const list = get(todoState);
   
       switch (filter) {
-        case 'Show Completed':
-          return list.filter((item) => item.completed);
+        case 'Show All':
+          return list.filter((item) => item);
         case 'Show Uncompleted':
           return list.filter((item) => !item.completed);
         default:
@@ -36,29 +33,12 @@ const TodoTasksView = () => {
         <>
             <Link to='/task'>Task</Link>
             <AddTaskView />
-            <TodoListFilters />
+            <FilterTasks filteredTodoListState={filteredTodoListState} />
             {tasks.map((task) =>
                 <TaskView key={task.id} item={task} />)}
         </>
     );
 }
 
-function TodoListFilters() {
-    const [filter, setFilter] = useRecoilState(todoListFilterState);
-  
-    const updateFilter = ({target: {value}}) => {
-      setFilter(value);
-    };
-  
-    return (
-      <>
-        Filter:
-        <select value={filter} onChange={updateFilter}>
-          <option value="Show All">All</option>
-          <option value="Show Completed">Completed</option>
-          <option value="Show Uncompleted">Uncompleted</option>
-        </select>
-      </>
-    );
-  }
+
 export default TodoTasksView;

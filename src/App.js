@@ -13,7 +13,10 @@ export const todoState = atom({
   default: [],
 });
 
-
+export const todoListFilterState = atom({
+  key: 'todoListFilterState',
+  default: 'Show All',
+});
 
 
 const App = () => {
@@ -29,7 +32,7 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path='/'> <TodoTasksView /></Route>
+        <Route exact path='/'> <TodoTasksView todoList={todoState} /></Route>
         <Route path='/task' component={TaskView} />
       </Switch>
     </Router>
