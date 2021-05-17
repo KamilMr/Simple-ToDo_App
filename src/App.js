@@ -29,7 +29,7 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={TodoTasksView} />
+        <Route exact path='/'> <TodoTasksView /></Route>
         <Route path='/task' component={TaskView} />
       </Switch>
     </Router>

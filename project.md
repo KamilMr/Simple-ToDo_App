@@ -10,7 +10,7 @@ Wymagania/skorzystaj z:
      - odznaczania wykonania zadania
 [TO-BE-DONE]
      - licznik zakończonych i niezakończonych zadań
-[TO-BE-DONE]
+[WORKING]
      - ukrywanie zakończonych zadań
 [TO-BE-DONE]
 - Możliwość wyszukiwania notatki po treści
