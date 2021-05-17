@@ -28,7 +28,6 @@ import FilterTasks from '../FilterTasks/FilterTasks';
 
 const TodoTasksView = () => {
     const tasks = useRecoilValue(filteredTodoListState)
-    console.log(tasks);
     return (
         <>
             <Link to='/task'>Task</Link>
