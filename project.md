@@ -5,7 +5,7 @@ Wymagania/skorzystaj z:
 - Routing w react router (np. do osobnych widoków zadań, podgląd konkretnego zadania)
 - Recoil - do:
 
-[TO-BE-DONE]
+[WORKING]
      - dynamiczna aktualizacja ilości znaków
 
 [TO-BE-DONE]

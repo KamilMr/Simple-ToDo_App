@@ -2,32 +2,44 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { todoState } from '../../../App';
-import { useRecoilState } from "recoil";
+import { atom, useRecoilState } from "recoil";
+import CharacterCounter from '../CharacterCounter/CharacterCounter';
+
+
+export const textState = atom({
+    key: 'textState',
+    default: '', 
+  });
 
 const TaskView = () => {
     const [todoList, setTodoList] = useRecoilState(todoState);
+    const [text, setText] = useRecoilState(textState);
     const { id } = useParams()
+
+
     let index = todoList.findIndex((listItem) => listItem.id == id);
     let item = todoList.filter((listItem) => listItem.id == id)[0];
-    console.log(item);
+    console.log();
 
     const editItemText = ({ target: { value } }) => {
         const newList = replaceItemAtIndex(todoList, index, {
-          ...item,
-          title: value,
+            ...item,
+            title: value,
         });
-    
+
         setTodoList(newList);
-      };
+        setText(value);
+    };
 
     const formatDate = (dateToBeFormated) => {
         const date = new Date(dateToBeFormated)
         const dateFormated = date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear()
-        
-        return dateFormated 
+
+        return dateFormated
     }
+
+
     
-      
     return (
         <>
             <Link to='/'><h2>Go back</h2></Link>
@@ -35,19 +47,21 @@ const TaskView = () => {
                 <li>created: {formatDate(item.created_at)}</li>
                 <li>updated: {formatDate(item.updated_at)}</li>
             </ul>
-                <input 
+            <input
                 value={item.title}
-                onChange={editItemText}/>
+                onChange={editItemText}
+            />
+            <CharacterCounter />
         </>
     );
 }
 
-function replaceItemAtIndex(arr, index, newValue) {
+const replaceItemAtIndex = (arr, index, newValue) => {
     return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
-  }
-  
+}
+
 
 TaskView.propTypes = {
     state: PropTypes.array,
-  }
+}
 export default TaskView;
