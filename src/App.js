@@ -4,6 +4,7 @@ import TodoTasksView from './components/views/TodoTasksView/TodoTasksView';
 import TaskView from './components/views/TaskView/TaskView';
 import AddTaskView from './components/views/AddTaskView/AddTaskView';
 import { atom, useRecoilState, } from 'recoil';
+import MainLayout from './components/layout/MainLayout/MainLayout';
 
 
 const urlList = 'https://gorest.co.in/public-api/todos';
@@ -26,15 +27,17 @@ const App = () => {
     fetch(urlList)
       .then((response) => response.json())
       .then((data) => setList(data.data))
-  },[])
+  }, [])
 
 
   return (
     <Router>
-      <Switch>
-        <Route exact path='/'> <TodoTasksView /></Route>
-        <Route path='/task/:id'><TaskView/></Route>
-      </Switch>
+      <MainLayout>
+        <Switch>
+          <Route exact path='/'> <TodoTasksView /></Route>
+          <Route path='/task/:id'><TaskView /></Route>
+        </Switch>
+      </MainLayout>
     </Router>
   );
 }

@@ -5,10 +5,10 @@ Wymagania/skorzystaj z:
 - Routing w react router (np. do osobnych widoków zadań, podgląd konkretnego zadania)
 - Recoil - do:
 
-[WORKING]
+[DONE]
      - dynamiczna aktualizacja ilości znaków
 
-[TO-BE-DONE]
+[WORKING]
 - Theme UI do styli i komponentów
 
 [DONE]

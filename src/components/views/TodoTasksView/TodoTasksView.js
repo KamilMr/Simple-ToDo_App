@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { todoState, todoListFilterState } from '../../../App';
 import { useRecoilValue, atom, selector, useRecoilState } from 'recoil';
@@ -7,6 +7,7 @@ import TaskItem from '../TaskItem/TaskItem';
 import FilterTasks from '../FilterTasks/FilterTasks';
 import StatsView from '../StatsView/StatsView';
 import SearchView from '../SearchView/SearchView';
+import { Container } from '@theme-ui/components';
 
 
 const filteredTodoListState = selector({
@@ -28,12 +29,12 @@ const filteredTodoListState = selector({
 
 const filterPosts = (posts, query) => {
   if (!query) {
-      return posts;
+    return posts;
   }
-  
+
   return posts.filter((post) => {
-      const postName = post.title.toLowerCase();
-      return postName.includes(query);
+    const postName = post.title.toLowerCase();
+    return postName.includes(query);
   });
 };
 
@@ -43,17 +44,17 @@ const TodoTasksView = () => {
   const filteredPosts = filterPosts(tasks, searchQuery);
 
   return (
-    <>
-      <SearchView 
-      searchQuery={searchQuery}
-      setSearchQuery={setSearchQuery}
+    <Container p={1} bg="muted">
+      <SearchView
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
       <AddTaskView />
       <StatsView />
       <FilterTasks />
       {filteredPosts.map((task) =>
         <TaskItem key={task.id} item={task} />)}
-    </>
+    </Container>
   );
 }
 
