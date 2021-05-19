@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import { todoState } from '../../../App';
 import { useRecoilState } from 'recoil';
+import { Button, Checkbox, Container, IconButton  , Input, Label } from '@theme-ui/components';
+import { BsFillTrashFill } from 'react-icons/bs';
+
 
 const TaskItem = ({ item }) => {
   const [todoList, setTodoList] = useRecoilState(todoState);
@@ -34,20 +37,33 @@ const TaskItem = ({ item }) => {
 
 
   return (
-    <div>
-      
-      <input
-        type="text" value={item.title} onChange={editItemText} />
-      <input
-        type="checkbox"
-        checked={item.completed}
-        onChange={toggleItemCompletion}
-      />
-      <button onClick={deleteItem}>X</button>
-      <Link to={`/task/${item.id}`}>
-        <button>Go</button>
+    <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', m: 2, borderBottom: '1px solid', p: [2, 3] }}>
+
+      <Label sx={{ maxWidth: 30, variant:'button.secondary'}}>
+        <Checkbox  sx={{
+          ":focus,:hover": {
+            backgroundColor: 'black',
+          },
+          "> path": {
+            "fill": "yellow",
+            "d": ""
+          },
+          color: 'muted',
+        }}
+          checked={item.completed}
+          onChange={toggleItemCompletion} />
+      </Label>
+      <Input sx={{ ml: 3, mr: 3 }} value={item.title} onChange={editItemText} />
+
+      <IconButton as='button' sx={{ mr: [1, 3, 4], border: 'none', color:'red',":focus,:hover": {
+            backgroundColor: 'black',
+          }, }} onClick={deleteItem}>
+        <BsFillTrashFill />
+      </IconButton>
+      <Link to={`/task/${item.id}`} style={{textDecoration: 'none'}} >
+        <Button variant='outline' sx={{ mr: [2, 3], width: 'auto', height: 'auto', color:'muted' }}>more</Button>
       </Link>
-    </div>
+    </Container>
   );
 }
 

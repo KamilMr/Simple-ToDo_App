@@ -31,7 +31,7 @@ const AddTaskView = () => {
  
       <Input type="text" placeholder='Add a new Task' value={inputValue} onChange={onChange} />
 
-      <Button ml={2} onClick={addItem}>Add</Button>
+      <Button variant='outline' sx={{ mr: [2, 3],ml:[3,2], fontSize:3, border:'none', boxShadow: 'none', width: 'auto', height: 'auto', color:'muted' }} onClick={addItem}>+</Button>
     </Container>
   )
 }
