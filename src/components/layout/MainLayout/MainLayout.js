@@ -14,14 +14,13 @@ const MainLayout = ({ children }) => {
                     textAlign: 'center',
                     py: [3,4],
                     px:3
-
                 }}>
                     <Heading  sx={{
                         color: 'snow',
                     }} >Things To Do</Heading>
                 </Container>
 
-                <Container>
+                <Container sx={{display: 'grid', width: 350}}>
                     {children}
                 </Container>
 

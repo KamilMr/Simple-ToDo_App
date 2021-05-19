@@ -44,7 +44,7 @@ const TodoTasksView = () => {
   const filteredPosts = filterPosts(tasks, searchQuery);
 
   return (
-    <Container>
+    <>
       <SearchView
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -54,7 +54,7 @@ const TodoTasksView = () => {
       <AddTaskView />
       {filteredPosts.map((task) =>
         <TaskItem key={task.id} item={task} />)}
-    </Container>
+    </>
   );
 }
 
