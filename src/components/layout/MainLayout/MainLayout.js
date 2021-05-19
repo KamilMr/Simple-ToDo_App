@@ -1,11 +1,20 @@
+/** @jsxImportSource theme-ui */
 import React from 'react';
-import { ThemeProvider } from 'theme-ui'
-import theme from '../../../styles/theme'
+import { Themed, ThemeProvider, Container, Box } from 'theme-ui'
+import theme from '@hackclub/theme'
 import PropTypes from 'prop-types';
 
-const MainLayout = (props) => {
+const MainLayout = ({ children }) => {
     return (
-        <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+        <>
+            <ThemeProvider theme={theme}>
+                <Box >Things To Do</Box>
+                <Container>
+                    {children}
+                </Container>
+
+            </ThemeProvider>
+        </>
     );
 }
 
