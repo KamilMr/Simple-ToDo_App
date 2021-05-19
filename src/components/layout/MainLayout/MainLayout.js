@@ -20,7 +20,7 @@ const MainLayout = ({ children }) => {
                     }} >Things To Do</Heading>
                 </Container>
 
-                <Container sx={{display: 'grid', width: 350}}>
+                <Container sx={{display: 'grid'}}>
                     {children}
                 </Container>
 

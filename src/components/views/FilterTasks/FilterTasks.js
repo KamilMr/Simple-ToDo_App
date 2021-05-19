@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { todoState, todoListFilterState } from '../../../App';
 import { atom, selector, useRecoilState } from 'recoil';
+import { Button } from '@theme-ui/components';
 
 
 const FilterTasks = () => {
@@ -13,7 +14,9 @@ const FilterTasks = () => {
   }
   return (
     <>
-      <button onClick={updateFilter}>{isTrue ? 'Show Uncompleted' : 'Show All'}</button>
+      <Button sx={{
+        bg: 'secondary'
+      }} onClick={updateFilter}>{isTrue ? 'Show Uncompleted' : 'Show All'}</Button>
     </>
   );
 }
