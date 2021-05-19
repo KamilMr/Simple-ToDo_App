@@ -1,10 +1,8 @@
-/** @jsxImportSource theme-ui */
 import React from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import { todoState } from '../../../App';
 import { useRecoilState } from 'recoil';
-import theme from '../../../styles/theme';
 
 const TaskItem = ({ item }) => {
   const [todoList, setTodoList] = useRecoilState(todoState);
@@ -38,9 +36,7 @@ const TaskItem = ({ item }) => {
   return (
     <div>
       
-      <input sx={{
-        color: theme.colors.text,
-      }}
+      <input
         type="text" value={item.title} onChange={editItemText} />
       <input
         type="checkbox"

@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container, Input } from '@theme-ui/components';
 
 const SearchView = ({ searchQuery, setSearchQuery }) => {
     return (
-        <div >
+        <Container >
         
-            <input
+            <Input
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 type="text"
                 id="header-search"
-                placeholder="Search blog posts"
+                placeholder="Search tasks"
                 name="s"
             />
-        </div>
+        </Container>
     );
 }
 
