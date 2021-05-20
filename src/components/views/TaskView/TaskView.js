@@ -78,8 +78,8 @@ const TaskView = () => {
 
 
     return (
-        <Container sx={{ py: [3, 4], maxWidth: [null, 550], height: [null, null, '100vh'] }}>
-            <Card sx={{ height: ['auto', 'auto', 'copy'] }}>
+        <Container sx={{ py: [3, 4], maxWidth: [null, 550], minHeight: [null, null, '100vh'] }}>
+            <Card sx={{ minHeight: ['100vh', '100vh', 'copy'] }}>
                 <Flex sx={{ justifyContent: 'space-between', alignItems:'center' }}>
                     <Link to='/' style={{ textDecoration: 'none',color: '#0a5b71'}}><Heading as='h4'><AiOutlineArrowLeft /> All Tasks</Heading></Link>
                     <CharacterCounter />
