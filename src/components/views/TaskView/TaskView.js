@@ -6,6 +6,7 @@ import { atom, useRecoilState } from "recoil";
 import CharacterCounter from '../CharacterCounter/CharacterCounter';
 import { Box, Card, Container, Flex, Heading, Textarea, Text, Button } from '@theme-ui/components';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { get } from '@theme-ui/css';
 
 export const textState = atom({
     key: 'textState',
@@ -21,7 +22,6 @@ const TaskView = () => {
 
     let index = todoList.findIndex((listItem) => listItem.id == id);
     let item = todoList.filter((listItem) => listItem.id == id)[0];
-    console.log();
 
     const editItemText = (e) => {
         let target = e.target.placeholder;
@@ -54,12 +54,25 @@ const TaskView = () => {
 
     };
 
-    const formatDate = (dateToBeFormated) => {
-        // console.log(Date.prototype.getFullYear());
-        const date = new Date(dateToBeFormated)
-        const dateFormated = date.getDay() + '.' + date.getMonth() + '.' + date.getFullYear()
+    const updateDate = () => {
+        const newList = replaceItemAtIndex(todoList, index, {
+            ...item,
+            updated_at: new Date(),
+        });
+        setTodoList(newList);
+    }
 
-        return dateFormated
+    const formatDate = (dateToBeFormated) => {
+        const date = new Date(dateToBeFormated)
+        const year = date.getUTCFullYear();
+        const month = date.getUTCMonth() + 1;
+        const day =  date.getDate();
+        if (isNaN(year) && isNaN(month)&& isNaN(day)){
+            return null
+        } else
+        return `${day}/${month}/${year}`;
+        
+        
     }
 
 
@@ -98,7 +111,7 @@ const TaskView = () => {
                 </Container>
                 <Flex sx={{justifyContent:'center'}}>
                 <Link to='/' style={{ textDecoration: 'none' }}>
-                    <Button variant='outline' sx={{ mt: [3, 3,5],color: 'muted' }}>Save</Button>
+                    <Button variant='outline' sx={{ mt: [3, 3,5],color: 'muted' }} onClick={updateDate}>Save</Button>
                 </Link>
                 </Flex>
             </Card>

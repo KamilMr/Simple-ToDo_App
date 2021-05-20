@@ -53,7 +53,6 @@ const TodoTasksView = () => {
         px: 3
       }}>
         <SearchView searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-        {/* <Heading sx={{ color: 'secondary' }} >Things To Do</Heading> */}
         <FilterTasks />
       </Container>
       <AddTaskView />

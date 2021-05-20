@@ -19,7 +19,7 @@ const AddTaskView = () => {
         title: inputValue,
         completed: false,
         created_at: setDate(),
-        updated_at: null
+        updated_at: '',
       },
     ]);
     setInputValue('');
@@ -28,9 +28,6 @@ const AddTaskView = () => {
 
   const setDate = () => {
     const date = new Date();
-    console.log(date);
-    
-
     return date
   }
 
@@ -39,7 +36,7 @@ const AddTaskView = () => {
   };
   
   return (
-    <Container sx={{display:'flex', justifyContent:'space-evenly', alignItems:'center', maxWidth:['auto', 500, 800], p:[2, 3]}}>
+    <Container sx={{display:'flex', justifyContent:'space-evenly', alignItems:'center', maxWidth:['auto', 500, 800], pb:[0 ,2]}}>
  
       <Input type="text" placeholder='Type new task' value={inputValue} onChange={onChange} />
 
