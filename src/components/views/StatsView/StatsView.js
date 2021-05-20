@@ -1,40 +1,43 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { todoState } from '../../../App';
 import { selector, useRecoilValue } from 'recoil';
-import { Box, Container, Flex } from '@theme-ui/components';
+import { Box, Container, Flex, Grid, Text } from '@theme-ui/components';
 
-const todoListStatsState = selector({
-  key: 'todoListStatsState',
-  get: ({ get }) => {
-    const todoList = get(todoState);
-    const totalNum = todoList.length;
-    const totalCompletedNum = todoList.filter((item) => item.completed).length;
-    const totalUncompletedNum = totalNum - totalCompletedNum;
+// const todoListStatsState = selector({
+//   key: 'todoListStatsState',
+//   get: ({ get }) => {
+//     const todoList = get(todoState);
+//     const totalNum = todoList.length;
+//     const totalCompletedNum = todoList.filter((item) => item.completed).length;
+//     const totalUncompletedNum = totalNum - totalCompletedNum;
 
-    return {
+//     return {
 
-      totalCompletedNum,
-      totalUncompletedNum,
-    };
-  },
-});
+//       totalCompletedNum,
+//       totalUncompletedNum,
+//     };
+//   },
+// });
 
-const StatsView = () => {
-  const {
-    totalNum,
-    totalCompletedNum,
-    totalUncompletedNum,
-    percentCompleted,
-  } = useRecoilValue(todoListStatsState);
+const StatsView = ({number, type}) => {
+  // const {
+  //   totalNum,
+  //   totalCompletedNum,
+  //   totalUncompletedNum,
+  //   percentCompleted,
+  // } = useRecoilValue(todoListStatsState);
 
   return (
-    <Container>
-      <Flex sx={{ fontSize: 12,}}>
-        <Box p={2} >Done: ({totalCompletedNum}) </Box>
-        <Box p={2}>Uncompleted: ({totalUncompletedNum})</Box>
-      </Flex>
-    </Container>
+    <>
+        <Text sx={{p:2, display: 'inline-block'}}>{number} {type} </Text>
+    
+    </>
   );
+}
+StatsView.propTypes = {
+  number: PropTypes.number,
+  type: PropTypes.string,
 }
 
 export default StatsView;

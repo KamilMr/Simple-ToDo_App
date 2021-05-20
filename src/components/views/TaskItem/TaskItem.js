@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { todoState } from '../../../App';
 import { useRecoilState } from 'recoil';
-import { Button, Checkbox, Container, IconButton  , Input, Label } from '@theme-ui/components';
+import { Button, Checkbox, Container, IconButton, Input, Label } from '@theme-ui/components';
 import { BsFillTrashFill } from 'react-icons/bs';
 
 
@@ -39,10 +39,10 @@ const TaskItem = ({ item }) => {
   return (
     <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', m: 2, borderBottom: '1px solid', p: [2, 3] }}>
 
-      <Label sx={{ maxWidth: 30, variant:'button.secondary'}}>
-        <Checkbox  sx={{
+      <Label sx={{ maxWidth: 30, variant: 'button.secondary' }}>
+        <Checkbox sx={{
           ":focus,:hover": {
-            backgroundColor: 'black',
+            backgroundColor: 'sunken',
           },
           "> path": {
             "fill": "yellow",
@@ -55,13 +55,15 @@ const TaskItem = ({ item }) => {
       </Label>
       <Input sx={{ ml: 3, mr: 3 }} value={item.title} onChange={editItemText} />
 
-      <IconButton as='button' sx={{ mr: [1, 3, 4], border: 'none', color:'red',":focus,:hover": {
-            backgroundColor: 'black',
-          }, }} onClick={deleteItem}>
+      <IconButton as='button' sx={{
+        mr: [1, 3, 4], border: 'none', color: 'red', ":focus,:hover": {
+          backgroundColor: 'sunken',
+        },
+      }} onClick={deleteItem}>
         <BsFillTrashFill />
       </IconButton>
-      <Link to={`/task/${item.id}`} style={{textDecoration: 'none'}} >
-        <Button variant='outline' sx={{ mr: [2, 3], width: 'auto', height: 'auto', color:'muted' }}>more</Button>
+      <Link to={`/task/${item.id}`} style={{ textDecoration: 'none' }} >
+        <Button variant='outline' sx={{ mr: [2, 3], width: 'auto', height: 'auto', color: 'muted' }}>more</Button>
       </Link>
     </Container>
   );

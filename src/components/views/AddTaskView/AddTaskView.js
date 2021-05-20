@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { todoState } from '../../../App';
-import { useSetRecoilState } from 'recoil';
+import {RiAddFill} from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
-import { Button, Card, Container, Input } from '@theme-ui/components';
+import { useSetRecoilState } from 'recoil';
+import { todoState } from '../../../App';
+import { IconContext } from "react-icons";
+import { Button, Card, Container, Input, IconButton } from '@theme-ui/components';
 
 const AddTaskView = () => {
 
@@ -27,11 +29,15 @@ const AddTaskView = () => {
   };
 
   return (
-    <Container sx={{display:'flex', p:[2, 3]}}>
+    <Container sx={{display:'flex', justifyContent:'space-evenly', alignItems:'center', maxWidth:['auto', 500, 800], p:[2, 3]}}>
  
-      <Input type="text" placeholder='Add a new Task' value={inputValue} onChange={onChange} />
+      <Input type="text" placeholder='Type new task' value={inputValue} onChange={onChange} />
 
-      <Button variant='outline' sx={{ mr: [2, 3],ml:[3,2], fontSize:3, border:'none', boxShadow: 'none', width: 'auto', height: 'auto', color:'muted' }} onClick={addItem}>+</Button>
+      <IconButton as='button' sx={{
+        mr: [1, 3, 4], ml: [1, 3, 4], border: 'none', color: 'green', ":focus,:hover": {
+          backgroundColor: 'sunken'
+        }, fontSize:3,
+      }} onClick={addItem}>+</IconButton>
     </Container>
   )
 }

@@ -3,24 +3,14 @@ import React from 'react';
 import { ThemeProvider, Container, Heading } from 'theme-ui'
 import theme from '@hackclub/theme'
 import PropTypes from 'prop-types';
+import Header from '../Header/Header'
 
 const MainLayout = ({ children }) => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <Container as='header' sx={{
-                    maxWidth: 'container',
-                    bg: 'secondary',
-                    textAlign: 'center',
-                    py: [3,4],
-                    px:3
-                }}>
-                    <Heading  sx={{
-                        color: 'snow',
-                    }} >Things To Do</Heading>
-                </Container>
-
-                <Container sx={{display: 'grid'}}>
+                {/* <Header /> */}
+                <Container sx={{ display: 'grid' }}>
                     {children}
                 </Container>
 

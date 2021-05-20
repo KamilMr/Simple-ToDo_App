@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { todoState, todoListFilterState } from '../../../App';
-import { useRecoilValue, atom, selector, useRecoilState } from 'recoil';
+import { useRecoilValue, atom, selector } from 'recoil';
 import AddTaskView from '../AddTaskView/AddTaskView';
 import TaskItem from '../TaskItem/TaskItem';
 import FilterTasks from '../FilterTasks/FilterTasks';
 import StatsView from '../StatsView/StatsView';
 import SearchView from '../SearchView/SearchView';
-import { Container } from '@theme-ui/components';
+import { Container, Heading } from '@theme-ui/components';
 
 
 const filteredTodoListState = selector({
@@ -27,32 +27,38 @@ const filteredTodoListState = selector({
   },
 });
 
-const filterPosts = (posts, query) => {
+const filterTasks = (tasks, query) => {
   if (!query) {
-    return posts;
+    return tasks;
   }
 
-  return posts.filter((post) => {
-    const postName = post.title.toLowerCase();
-    return postName.includes(query);
+  return tasks.filter((post) => {
+    const tasksName = post.title.toLowerCase();
+    return tasksName.includes(query);
   });
 };
 
 const TodoTasksView = () => {
   const tasks = useRecoilValue(filteredTodoListState)
   const [searchQuery, setSearchQuery] = useState('');
-  const filteredPosts = filterPosts(tasks, searchQuery);
+  const filteredTasks = filterTasks(tasks, searchQuery);
 
   return (
     <>
-      <SearchView
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      />
-      <StatsView />
-      <FilterTasks />
+      {/* <StatsView /> */}
+      <Container sx={{
+        display: 'flex',
+        maxWidth: 'container',
+        textAlign: 'center',
+        py: [3, 4],
+        px: 3
+      }}>
+        <SearchView searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        {/* <Heading sx={{ color: 'secondary' }} >Things To Do</Heading> */}
+        <FilterTasks />
+      </Container>
       <AddTaskView />
-      {filteredPosts.map((task) =>
+      {filteredTasks.map((task) =>
         <TaskItem key={task.id} item={task} />)}
     </>
   );
