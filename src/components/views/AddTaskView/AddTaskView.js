@@ -18,16 +18,26 @@ const AddTaskView = () => {
         id: uuidv4(),
         title: inputValue,
         completed: false,
+        created_at: setDate(),
+        updated_at: null
       },
     ]);
     setInputValue('');
 
   }
 
+  const setDate = () => {
+    const date = new Date();
+    console.log(date);
+    
+
+    return date
+  }
+
   const onChange = ({ target: { value } }) => {
     setInputValue(value);
   };
-
+  
   return (
     <Container sx={{display:'flex', justifyContent:'space-evenly', alignItems:'center', maxWidth:['auto', 500, 800], p:[2, 3]}}>
  

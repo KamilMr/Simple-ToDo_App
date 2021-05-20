@@ -3,17 +3,14 @@ import React from 'react';
 import { ThemeProvider, Container, Heading } from 'theme-ui'
 import theme from '@hackclub/theme'
 import PropTypes from 'prop-types';
-import Header from '../Header/Header'
 
 const MainLayout = ({ children }) => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                {/* <Header /> */}
-                <Container sx={{ display: 'grid' }}>
-                    {children}
-                </Container>
-
+                    <Container sx={{ display: 'grid', my: 2 }}>
+                        {children}
+                    </Container>
             </ThemeProvider>
         </>
     );

@@ -7,7 +7,7 @@ import TaskItem from '../TaskItem/TaskItem';
 import FilterTasks from '../FilterTasks/FilterTasks';
 import StatsView from '../StatsView/StatsView';
 import SearchView from '../SearchView/SearchView';
-import { Container, Heading } from '@theme-ui/components';
+import { Card, Container, Heading } from '@theme-ui/components';
 
 
 const filteredTodoListState = selector({
@@ -42,10 +42,9 @@ const TodoTasksView = () => {
   const tasks = useRecoilValue(filteredTodoListState)
   const [searchQuery, setSearchQuery] = useState('');
   const filteredTasks = filterTasks(tasks, searchQuery);
-
+  console.log(tasks);
   return (
-    <>
-      {/* <StatsView /> */}
+    <Card>
       <Container sx={{
         display: 'flex',
         maxWidth: 'container',
@@ -60,7 +59,7 @@ const TodoTasksView = () => {
       <AddTaskView />
       {filteredTasks.map((task) =>
         <TaskItem key={task.id} item={task} />)}
-    </>
+    </Card>
   );
 }
 

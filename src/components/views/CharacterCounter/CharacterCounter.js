@@ -4,6 +4,7 @@ import {
     selector,
     useRecoilValue
 } from 'recoil';
+import {Text} from 'theme-ui'
 
   const charCountState = selector({
     key: 'charCountState',
@@ -17,7 +18,7 @@ import {
   function CharacterCounter() {
     const count = useRecoilValue(charCountState);
   
-    return <>Character Count: {count}</>;
+    return <Text sx={{color: 'muted'}}> {count}</Text>;
   }
 
   export default CharacterCounter

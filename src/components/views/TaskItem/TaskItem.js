@@ -37,7 +37,7 @@ const TaskItem = ({ item }) => {
 
 
   return (
-    <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', m: 2, borderBottom: '1px solid', p: [2, 3] }}>
+    <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', m: 2, borderBottom: '1px solid', p: [1, 2] }}>
 
       <Label sx={{ maxWidth: 30, variant: 'button.secondary' }}>
         <Checkbox sx={{
