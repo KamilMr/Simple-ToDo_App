@@ -41,7 +41,7 @@ const TodoTasksView = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const filteredTasks = filterTasks(tasks, searchQuery);
   return (
-    <Card sx={{mt:5, mb:3, mr:36, ml:6}} >
+    <Card sx={{mt:[null,5], mb:[null,3], mr:[null,6], ml:[null,6]}} >
       <Container sx={{
         display: 'flex',
         maxWidth: ['narrow', 'container' ,'container'],
