@@ -8,7 +8,7 @@ const MainLayout = ({ children }) => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                    <Container sx={{ display: 'grid', my: 2 }}>
+                    <Container sx={{ display: 'grid', height:'100%'}}>
                         {children}
                     </Container>
             </ThemeProvider>

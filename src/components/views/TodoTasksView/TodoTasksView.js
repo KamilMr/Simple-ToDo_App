@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { todoState, todoListFilterState } from '../../../App';
-import { useRecoilValue, atom, selector } from 'recoil';
+import { useRecoilValue, selector } from 'recoil';
 import AddTaskView from '../AddTaskView/AddTaskView';
 import TaskItem from '../TaskItem/TaskItem';
 import FilterTasks from '../FilterTasks/FilterTasks';
-import StatsView from '../StatsView/StatsView';
 import SearchView from '../SearchView/SearchView';
-import { Card, Container, Heading } from '@theme-ui/components';
+import { Card, Container } from '@theme-ui/components';
 
 
 const filteredTodoListState = selector({
@@ -42,15 +40,14 @@ const TodoTasksView = () => {
   const tasks = useRecoilValue(filteredTodoListState)
   const [searchQuery, setSearchQuery] = useState('');
   const filteredTasks = filterTasks(tasks, searchQuery);
-  console.log(tasks);
   return (
-    <Card>
+    <Card sx={{mt:5, mb:3, mr:36, ml:6}} >
       <Container sx={{
         display: 'flex',
-        maxWidth: 'container',
+        maxWidth: ['narrow', 'container' ,'container'],
         textAlign: 'center',
         py: [3, 4],
-        px: 3
+        px: 0
       }}>
         <SearchView searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <FilterTasks />

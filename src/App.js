@@ -28,7 +28,10 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => setList(data.data))
   }, [])
-
+  useEffect(() => {
+    document.body.style.backgroundColor = '#0a5b71'
+  }, [])
+  
 
   return (
     <Router>

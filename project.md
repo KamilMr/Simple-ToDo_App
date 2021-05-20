@@ -8,7 +8,7 @@ Wymagania/skorzystaj z:
 [DONE]
      - dynamiczna aktualizacja ilości znaków
 
-[WORKING]
+[DONE]
 - Theme UI do styli i komponentów
 
 [DONE]

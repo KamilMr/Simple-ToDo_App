@@ -4,7 +4,7 @@ import { Container, Input } from '@theme-ui/components';
 
 const SearchView = ({ searchQuery, setSearchQuery }) => {
     return (
-        <Container >
+        <Container sx={{maxWidth:['auto', 'auto', 800]}} >
             <Input
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}

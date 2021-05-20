@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import {RiAddFill} from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 import { useSetRecoilState } from 'recoil';
 import { todoState } from '../../../App';
-import { IconContext } from "react-icons";
-import { Button, Card, Container, Input, IconButton } from '@theme-ui/components';
+import { Container, Input, IconButton } from '@theme-ui/components';
 
 const AddTaskView = () => {
 
@@ -36,12 +34,12 @@ const AddTaskView = () => {
   };
   
   return (
-    <Container sx={{display:'flex', justifyContent:'space-evenly', alignItems:'center', maxWidth:['auto', 500, 800], pb:[0 ,2]}}>
+    <Container sx={{display:'flex', justifyContent:'space-evenly', alignItems:'center', maxWidth:['auto', null, 800], pb:[0 ,2]}}>
  
       <Input type="text" placeholder='Type new task' value={inputValue} onChange={onChange} />
 
       <IconButton as='button' sx={{
-        mr: [1, 3, 4], ml: [1, 3, 4], border: 'none', color: 'green', ":focus,:hover": {
+        mr: [1, 3, 4], ml: [1, 3, 4], border: 'none', color: '#0a5b71', ":focus,:hover": {
           backgroundColor: 'sunken'
         }, fontSize:3,
       }} onClick={addItem}>+</IconButton>

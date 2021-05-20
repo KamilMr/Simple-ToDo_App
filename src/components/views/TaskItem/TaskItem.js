@@ -45,7 +45,7 @@ const TaskItem = ({ item }) => {
             backgroundColor: 'sunken',
           },
           "> path": {
-            "fill": "yellow",
+            "fill": "#0a5b71",
             "d": ""
           },
           color: 'muted',
@@ -63,17 +63,17 @@ const TaskItem = ({ item }) => {
         <BsFillTrashFill />
       </IconButton>
       <Link to={`/task/${item.id}`} style={{ textDecoration: 'none' }} >
-        <Button variant='outline' sx={{ mr: [2, 3], width: 'auto', height: 'auto', color: 'muted' }}>more</Button>
+        <Button variant='outline' sx={{ mr: [2, 3], width: ['70px' ,'auto'], height: ['30px' ,'auto'], fontWeight:'body', color: '#0a5b71' }}>more</Button>
       </Link>
     </Container>
   );
 }
 
-function replaceItemAtIndex(arr, index, newValue) {
+const replaceItemAtIndex = (arr, index, newValue) => {
   return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
 }
 
-function removeItemAtIndex(arr, index) {
+const removeItemAtIndex = (arr, index) => {
   return [...arr.slice(0, index), ...arr.slice(index + 1)];
 }
 

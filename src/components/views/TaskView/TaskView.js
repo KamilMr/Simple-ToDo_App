@@ -6,7 +6,7 @@ import { atom, useRecoilState } from "recoil";
 import CharacterCounter from '../CharacterCounter/CharacterCounter';
 import { Box, Card, Container, Flex, Heading, Textarea, Text, Button } from '@theme-ui/components';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { get } from '@theme-ui/css';
+
 
 export const textState = atom({
     key: 'textState',
@@ -78,18 +78,18 @@ const TaskView = () => {
 
 
     return (
-        <Container sx={{ py: [3, 4], maxWidth: [null, 550] }}>
-            <Card sx={{ height: ['narrow', 'auto', 'copy'] }}>
-                <Flex sx={{ justifyContent: 'space-between' }}>
-                    <Link to='/' style={{ textDecoration: 'none' }}><Heading as='h5'><AiOutlineArrowLeft /> All Tasks</Heading></Link>
+        <Container sx={{ py: [3, 4], maxWidth: [null, 550], height: [null, null, '100vh'] }}>
+            <Card sx={{ height: ['auto', 'auto', 'copy'] }}>
+                <Flex sx={{ justifyContent: 'space-between', alignItems:'center' }}>
+                    <Link to='/' style={{ textDecoration: 'none',color: '#0a5b71'}}><Heading as='h4'><AiOutlineArrowLeft /> All Tasks</Heading></Link>
                     <CharacterCounter />
-                    <Box sx={{ display: 'grid', height: 'auto' }}>
+                    <Box sx={{ display: 'grid', height: 'auto', color:'muted', fontSize:['12px',1] }}>
                         <Text>created {formatDate(item.created_at)}</Text>
                         <Text>updated {formatDate(item.updated_at)}</Text>
                     </Box>
                 </Flex>
 
-                <Container sx={{ display: 'grid', gap: 5, mt: [1, 3, 5] }} >
+                <Container sx={{ display: 'grid', gap: 5, mt: [5, 3, 5] }} >
                     <Textarea sx={{ mt: 2, borderBottom: '1px solid', borderRadius: 0, borderColor: 'sunken' }}
                         rows={2}
                         placeholder='Title'
@@ -111,7 +111,7 @@ const TaskView = () => {
                 </Container>
                 <Flex sx={{justifyContent:'center'}}>
                 <Link to='/' style={{ textDecoration: 'none' }}>
-                    <Button variant='outline' sx={{ mt: [3, 3,5],color: 'muted' }} onClick={updateDate}>Save</Button>
+                    <Button variant='outline' sx={{ mt: [3, 3,5], color: '#0a5b71' }} onClick={updateDate}>Save</Button>
                 </Link>
                 </Flex>
             </Card>

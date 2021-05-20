@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { todoState, todoListFilterState } from '../../../App';
-import { atom, selector, useRecoilState, useRecoilValue } from 'recoil';
+import { selector, useRecoilState, useRecoilValue } from 'recoil';
 import { Button, Flex } from '@theme-ui/components';
 import StatsView from '../StatsView/StatsView';
 
@@ -42,7 +42,7 @@ const FilterTasks = () => {
     <>
       <Flex sx={{justifyContent:'space-evenly'}}>
         
-        <Button variant='outline' sx={{ p: [1, 2], width: 150, height: 40, border: 'none', color: 'muted', boxShadow:'none' }}
+        <Button variant='outline' sx={{ p: [1, 2], width: 150, height: 40, border: 'none', color: '#0a5b71', boxShadow:'none' }}
          onClick={updateFilter}>{isTrue ? <StatsView number={totalCompletedNum} type={'Done'} /> : <StatsView number={totalUncompletedNum} type={'Remain'} />}
         </Button>
       </Flex>
